@@ -1,0 +1,10 @@
+#!/bin/sh
+
+echo '=== METEOR DEVELOPMENT ENVIRONMENT ==='
+meteor create app
+cd app
+meteor npm install
+meteor
+
+node /docker/bin/debug.js
+

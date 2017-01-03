@@ -1,0 +1,18 @@
+FROM martinezko/alpine-meteor:latest
+USER meteor
+
+ADD ./app /app
+ADD entrypoint /docker/entrypoint
+
+ONBUILD RUN RUN adduser  -g "Meteor Run Time" -s /bin/bash -D test
+ONBUILD RUN chown -R meteor /opt/meteord/
+ONBUILD RUN chmod +x -R /opt/meteord/
+
+ONBUILD RUN ./opt/meteord/install_graphicsmagick.sh
+ONBUILD RUN ./opt/meteord/install_imagemagick.sh
+ONBUILD RUN ./opt/meteord/install_phantomjs.sh
+
+ONBUILD RUN curl https://install.meteor.com/ | sh
+
+ENTRYPOINT /docker/entrypoint
+
