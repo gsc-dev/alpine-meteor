@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# echo '=== METEOR PRODUCTION ENVIRONMENT ==='
+# sh $METEORD_DIR/run_app.sh
+
 echo '=== METEOR DEVELOPMENT ENVIRONMENT ==='
 meteor create app
 cd app
